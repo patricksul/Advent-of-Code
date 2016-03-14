@@ -27,7 +27,7 @@ if __name__ == "__main__":
     print '\tPART 1:\n'
     print 'answer: \t\t', five_zero_answer, '\n\n\n'
 
-    six_zero_hash, six_zero_answer = md5_calc(key, '000000')
+    six_zero_answer = md5_calc(key, '000000')
     print '---------------------------------------------'
     print '\tPART 2:\n'
     print 'answer: \t\t', six_zero_answer, '\n\n\n'
