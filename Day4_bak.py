@@ -1,0 +1,39 @@
+#! /usr/bin/env python
+import md5
+import os
+
+def md5_calc(key, hash_string):
+    
+    number = 0
+    output = ''
+    
+    while(not output.startswith(hash_string)):
+    
+        number += 1 
+        test_hash = md5.new()
+        test_hash.update(key + str(number))
+        output = test_hash.hexdigest()
+
+    return output, number
+
+def main():
+    
+    os.system('clear')
+    print '\n\n--- Day 4: The Ideal Stocking Stuffer ---\n\n'
+    
+    key = raw_input('enter secret key:\t')
+   
+    five_zero_hash, five_zero_answer = md5_calc(key, '00000')
+    print '\n\n---------------------------------------------'
+    print '\tPART 1:\n'
+    print 'hash: \t\t\t', five_zero_hash
+    print 'answer: \t\t', five_zero_answer, '\n\n\n'
+
+    six_zero_hash, six_zero_answer = md5_calc(key, '000000')
+    print '---------------------------------------------'
+    print '\tPART 2:\n'
+    print 'hash: \t\t\t', six_zero_hash
+    print 'answer: \t\t', six_zero_answer, '\n\n\n'
+
+if __name__ == "__main__":
+    main()
